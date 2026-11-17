@@ -15,7 +15,7 @@ export default function AdminLayout() {
   return (
     <div className="flex min-h-screen">
       <aside className="w-64 shrink-0 overflow-y-auto border-r border-slate-200 bg-white p-4">
-        <p className="mb-4 text-lg font-semibold">Flight CMS</p>
+        <p className="mb-4 text-lg font-semibold">Flyomint CMS</p>
 
         <nav className="space-y-4">
           {NAV_GROUPS.map((group, index) => (

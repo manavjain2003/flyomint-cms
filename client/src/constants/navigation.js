@@ -22,31 +22,31 @@ export const NAV_GROUPS = [
       item('/trust-items', 'Trust badges and logos'),
     ],
   },
-  {
-    title: 'Content',
-    items: [
-      item('/blogs', 'Blogs'), item('/guides', 'Travel guides and help pages'), item('/faqs', 'FAQs'),
-      item('/testimonials', 'Testimonials'), item('/pages/about', 'About us'), item('/pages/privacy', 'Privacy policy'),
-      item('/pages/terms', 'Terms and conditions'), item('/pages/disclaimer', 'Disclaimer'),
-      item('/pages/payment-refund', 'Payment and refund policy'), item('/help-center', 'Help center'),
-      item('/contact-page', 'Contact us page'),
-    ],
-  },
-  { title: 'Navigation', items: [item('/menus', 'Menu management'), item('/footer', 'Footer')] },
-  { title: 'SEO', items: [item('/seo/settings', 'SEO settings', true), item('/seo/redirects', '301 redirections'), item('/seo/duplicates', 'Duplicate content')] },
-  {
-    title: 'Communication',
-    items: [
-      item('/templates', 'Email / SMS templates'), item('/subscribers', 'Newsletter'), item('/enquiries', 'Enquiries'),
-      item('/whatsapp', 'WhatsApp and chat'), item('/mobile-app', 'Mobile app links'),
-    ],
-  },
+  // {
+  //   title: 'Content',
+  //   items: [
+  //     item('/blogs', 'Blogs'), item('/guides', 'Travel guides and help pages'), item('/faqs', 'FAQs'),
+  //     item('/testimonials', 'Testimonials'), item('/pages/about', 'About us'), item('/pages/privacy', 'Privacy policy'),
+  //     item('/pages/terms', 'Terms and conditions'), item('/pages/disclaimer', 'Disclaimer'),
+  //     item('/pages/payment-refund', 'Payment and refund policy'), item('/help-center', 'Help center'),
+  //     item('/contact-page', 'Contact us page'),
+  //   ],
+  // },
+  // { title: 'Navigation', items: [item('/menus', 'Menu management'), item('/footer', 'Footer')] },
+  // { title: 'SEO', items: [item('/seo/settings', 'SEO settings', true), item('/seo/redirects', '301 redirections'), item('/seo/duplicates', 'Duplicate content')] },
+  // {
+  //   title: 'Communication',
+  //   items: [
+  //     item('/templates', 'Email / SMS templates'), item('/subscribers', 'Newsletter'), item('/enquiries', 'Enquiries'),
+  //     item('/whatsapp', 'WhatsApp and chat'), item('/mobile-app', 'Mobile app links'),
+  //   ],
+  // },
   { title: 'Tools', items: [item('/media', 'Media library'), item('/reports', 'Reports')] },
-  {
-    title: 'Administration',
-    items: [
-      item('/users', 'Admin users', true), item('/activity-log', 'Activity log', true),
-      item('/theme', 'Theme and site settings', true), item('/settings', 'Settings', true), item('/settings/smtp', 'SMTP email settings', true),
-    ],
-  },
+  // {
+  //   title: 'Administration',
+  //   items: [
+  //     item('/users', 'Admin users', true), item('/activity-log', 'Activity log', true),
+  //     item('/theme', 'Theme and site settings', true), item('/settings', 'Settings', true), item('/settings/smtp', 'SMTP email settings', true),
+  //   ],
+  // },
 ];
