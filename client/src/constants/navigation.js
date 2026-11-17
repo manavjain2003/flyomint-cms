@@ -11,17 +11,17 @@ export const NAV_GROUPS = [
       item('/announcements/cookie-consent', 'Cookie consent'), item('/popups', 'Popups'),
     ],
   },
-  // {
-  //   title: 'Flights',
-  //   items: [
-  //     item('/routes/domestic', 'Domestic flight routes'), item('/routes/international', 'International flight routes'),
-  //     item('/destinations', 'Destination pages'), item('/airlines', 'Airlines'), item('/cities', 'Airports / cities'),
-  //     item('/deals', 'Flight deals'), item('/offers', 'Flight offers'),
-  //     item('/special-fares/student-fare', 'Student fare'), item('/special-fares/senior-citizen-fare', 'Senior citizen fare'),
-  //     item('/special-fares/armed-forces-fare', 'Armed forces fare'), item('/special-fares/doctors-nurses-fare', 'Doctors and nurses fare'),
-  //     item('/trust-items', 'Trust badges and logos'),
-  //   ],
-  // },
+  {
+    title: 'Flights',
+    items: [
+      item('/routes/domestic', 'Domestic flight routes'), item('/routes/international', 'International flight routes'),
+      item('/destinations', 'Destination pages'), item('/airlines', 'Airlines'), item('/cities', 'Airports / cities'),
+      item('/deals', 'Flight deals'), item('/offers', 'Flight offers'),
+      item('/special-fares/student-fare', 'Student fare'), item('/special-fares/senior-citizen-fare', 'Senior citizen fare'),
+      item('/special-fares/armed-forces-fare', 'Armed forces fare'), item('/special-fares/doctors-nurses-fare', 'Doctors and nurses fare'),
+      item('/trust-items', 'Trust badges and logos'),
+    ],
+  },
   {
     title: 'Content',
     items: [
@@ -42,11 +42,11 @@ export const NAV_GROUPS = [
     ],
   },
   { title: 'Tools', items: [item('/media', 'Media library'), item('/reports', 'Reports')] },
-  // {
-  //   title: 'Administration',
-  //   items: [
-  //     item('/users', 'Admin users', true), item('/activity-log', 'Activity log', true),
-  //     item('/theme', 'Theme and site settings', true), item('/settings', 'Settings', true), item('/settings/smtp', 'SMTP email settings', true),
-  //   ],
-  // },
+  {
+    title: 'Administration',
+    items: [
+      item('/users', 'Admin users', true), item('/activity-log', 'Activity log', true),
+      item('/theme', 'Theme and site settings', true), item('/settings', 'Settings', true), item('/settings/smtp', 'SMTP email settings', true),
+    ],
+  },
 ];
