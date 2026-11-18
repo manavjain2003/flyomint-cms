@@ -25,15 +25,21 @@ export default function LoginPage() {
   };
 
   return (
-    <AuthLayout title="Sign in to the CMS">
+    <AuthLayout title="Welcome back" subtitle="Sign in to manage your website content.">
       <form onSubmit={submit} className="space-y-4">
-        <input className="form-input" placeholder="Username or email" required value={form.username}
-          onChange={(e) => setForm({ ...form, username: e.target.value })} />
-        <input className="form-input" type="password" placeholder="Password" required value={form.password}
-          onChange={(e) => setForm({ ...form, password: e.target.value })} />
-        {error && <p className="text-sm text-red-600">{error}</p>}
+        <div>
+          <label htmlFor="username" className="field-label">Username or email</label>
+          <input id="username" className="form-input" autoComplete="username" required value={form.username}
+            onChange={(e) => setForm({ ...form, username: e.target.value })} />
+        </div>
+        <div>
+          <label htmlFor="password" className="field-label">Password</label>
+          <input id="password" className="form-input" type="password" autoComplete="current-password" required value={form.password}
+            onChange={(e) => setForm({ ...form, password: e.target.value })} />
+        </div>
+        {error && <p role="alert" className="rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-700">{error}</p>}
         <button className="btn-primary w-full" disabled={busy}>{busy ? 'Signing in…' : 'Sign in'}</button>
-        <Link to="/forgot-password" className="block text-center text-sm text-brand underline">Forgot password?</Link>
+        <Link to="/forgot-password" className="block text-center text-sm font-semibold text-brand hover:underline">Forgot password?</Link>
       </form>
     </AuthLayout>
   );

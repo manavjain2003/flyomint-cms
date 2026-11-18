@@ -25,12 +25,12 @@ export function RelationMultiSelect({ field, value = [], onChange, disabled }) {
   const toggle = (id) => onChange(value.includes(id) ? value.filter((item) => item !== id) : [...value, id]);
 
   return (
-    <div className="rounded-md border border-slate-300 p-2">
+    <div className="rounded-lg border border-slate-300 bg-white p-2">
       <input className="form-input mb-2" placeholder="Filter…" value={filter} onChange={(e) => setFilter(e.target.value)} />
       <div className="max-h-40 space-y-1 overflow-y-auto">
         {visible.map((doc) => (
           <label key={doc.id} className="flex items-center gap-2 text-sm">
-            <input type="checkbox" disabled={disabled} checked={value.includes(doc.id)} onChange={() => toggle(doc.id)} />
+            <input type="checkbox" className="h-4 w-4 rounded border-slate-300 accent-brand" disabled={disabled} checked={value.includes(doc.id)} onChange={() => toggle(doc.id)} />
             {labelOf(field, doc)}
           </label>
         ))}

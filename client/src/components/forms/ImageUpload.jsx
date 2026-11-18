@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { uploadImage } from '../../services/cloudinaryService.js';
 import { resourceService } from '../../services/resourceService.js';
+import Icon from '../ui/Icon.jsx';
 import MediaPicker from './MediaPicker.jsx';
 
 /**
@@ -33,16 +34,16 @@ export default function ImageUpload({ label, value, folder = 'general', onChange
 
   return (
     <div>
-      {label && <span className="mb-1 block text-sm font-medium">{label}</span>}
+      {label && <span className="field-label">{label}</span>}
 
-      <div className="flex items-start gap-4">
+      <div className="flex flex-wrap items-start gap-4">
         {image.url ? (
-          <img src={image.url} alt="" className="h-20 w-32 shrink-0 rounded-md border object-cover" />
+          <img src={image.url} alt="" className="h-20 w-32 shrink-0 rounded-lg border border-slate-200 object-cover" />
         ) : (
-          <div className="grid h-20 w-32 shrink-0 place-items-center rounded-md border border-dashed text-xs text-slate-400">No image</div>
+          <div className="grid h-20 w-32 shrink-0 place-items-center rounded-lg border border-dashed border-slate-300 bg-slate-50 text-slate-400"><Icon name="photo" className="h-6 w-6" /></div>
         )}
 
-        <div className="min-w-0 flex-1 space-y-2">
+        <div className="min-w-0 flex-1 basis-48 space-y-2">
           <div className="flex flex-wrap items-center gap-2">
             <input type="file" accept="image/*" onChange={handleFile} className="text-sm" />
             <button type="button" className="btn-secondary" onClick={() => setPickerOpen(true)}>Choose from library</button>

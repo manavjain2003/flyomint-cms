@@ -21,8 +21,8 @@ export default function TemplateTestPanel({ id }) {
   };
 
   return (
-    <section className="card space-y-3">
-      <h2 className="text-sm font-semibold">Test email</h2>
+    <section className="panel space-y-3">
+      <h2 className="text-base font-bold">Test email</h2>
       <p className="text-xs text-slate-500">Save the template first, then send it with sample customer details.</p>
       <div className="flex gap-2">
         <input className="form-input" type="email" placeholder="your@email.com" value={to} onChange={(e) => setTo(e.target.value)} />

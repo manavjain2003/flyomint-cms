@@ -19,11 +19,11 @@ export default function FieldRenderer({ field, values, onChange }) {
   const value = getPath(values, name);
   const set = (next) => onChange(name, next);
 
-  if (type === 'heading') return <h3 className="border-b pb-1 pt-3 text-sm font-semibold text-slate-600">{label}</h3>;
+  if (type === 'heading') return <h3 className="border-b border-slate-200 pb-1 pt-2 text-sm font-bold text-slate-700">{label}</h3>;
   if (type === 'checkbox') {
     return (
-      <label className="flex items-center gap-2 text-sm">
-        <input type="checkbox" disabled={readOnly} checked={Boolean(value)} onChange={(e) => set(e.target.checked)} />
+      <label className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
+        <input type="checkbox" className="h-4 w-4 rounded border-slate-300 accent-brand" disabled={readOnly} checked={Boolean(value)} onChange={(e) => set(e.target.checked)} />
         {label}
       </label>
     );
@@ -69,7 +69,7 @@ export default function FieldRenderer({ field, values, onChange }) {
       <div className="flex flex-wrap gap-4">
         {field.options.map(toOption).map((option) => (
           <label key={option.value} className="flex items-center gap-2 text-sm">
-            <input type="checkbox" checked={selected.includes(option.value)}
+            <input type="checkbox" className="h-4 w-4 rounded border-slate-300 accent-brand" checked={selected.includes(option.value)}
               onChange={() => set(selected.includes(option.value) ? selected.filter((v) => v !== option.value) : [...selected, option.value])} />
             {option.label}
           </label>
@@ -88,9 +88,9 @@ export default function FieldRenderer({ field, values, onChange }) {
 
   return (
     <div>
-      <label htmlFor={name} className="mb-1 block text-sm font-medium">{label}{required && ' *'}</label>
+      <label htmlFor={name} className="field-label">{label}{required && <span className="text-rose-600"> *</span>}</label>
       {control}
-      {help && <p className="mt-1 text-xs text-slate-500">{help}</p>}
+      {help && <p className="mt-1.5 text-xs text-slate-500">{help}</p>}
     </div>
   );
 }

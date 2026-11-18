@@ -2,7 +2,9 @@ import React, { useRef, useState } from 'react';
 import { useAuth } from '../../context/AuthContext.jsx';
 import { useResourceList } from '../../hooks/useResourceList.js';
 import { uploadImage } from '../../services/cloudinaryService.js';
+import Icon from '../../components/ui/Icon.jsx';
 import { resourceService } from '../../services/resourceService.js';
+import { useToast } from '../../context/ToastContext.jsx';
 
 const FOLDERS = ['banners', 'airlines', 'blogs', 'offers', 'general'];
 
@@ -20,12 +22,18 @@ function MediaCard({ media, canDelete, onChanged }) {
   };
 
   return (
-    <div className="card space-y-2 p-3">
-      <img src={media.url} alt={alt} className="h-32 w-full rounded object-cover" />
-      <p className="truncate text-xs font-medium" title={media.name}>{media.name}</p>
-      <p className="text-xs text-slate-500">{media.folder} · {media.width}×{media.height} · {Math.round((media.bytes || 0) / 1024)} KB</p>
-      <input className="form-input py-1 text-xs" placeholder="Alt text" value={alt} onChange={(e) => setAlt(e.target.value)} onBlur={saveAlt} />
-      {canDelete && <button className="text-xs text-red-600 underline" onClick={remove}>Delete</button>}
+    <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+      <img src={media.url} alt={alt} className="h-36 w-full bg-slate-100 object-cover" />
+      <div className="space-y-2 p-3">
+        <p className="truncate text-sm font-semibold" title={media.name}>{media.name}</p>
+        <p className="flex flex-wrap items-center gap-x-3 text-xs text-slate-500">
+          <span className="capitalize">{media.folder}</span><span>{media.width}×{media.height}</span><span>{Math.round((media.bytes || 0) / 1024)} KB</span>
+        </p>
+        <input className="form-input py-1.5 text-xs" placeholder="Alt text for search engines" aria-label="Alt text" value={alt} onChange={(e) => setAlt(e.target.value)} onBlur={saveAlt} />
+        {canDelete && (
+          <button className="inline-flex items-center gap-1 text-xs font-semibold text-rose-600 hover:underline" onClick={remove}><Icon name="trash" className="h-3.5 w-3.5" />Delete</button>
+        )}
+      </div>
     </div>
   );
 }
@@ -60,14 +68,14 @@ export default function MediaLibraryPage() {
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold">Media library</h1>
+          <h1 className="text-2xl font-extrabold">Media library</h1>
           <p className="text-sm text-slate-500">Images are compressed automatically. Add alt text for every image.</p>
         </div>
         <div className="flex items-center gap-2">
           <select className="form-input w-36" value={uploadFolder} onChange={(e) => setUploadFolder(e.target.value)}>
             {FOLDERS.map((name) => <option key={name} value={name}>Upload to {name}</option>)}
           </select>
-          <button className="btn-primary" onClick={() => inputRef.current.click()}>Upload images</button>
+          <button className="btn-primary" onClick={() => inputRef.current.click()}><Icon name="upload" className="h-4 w-4" />Upload images</button>
           <input ref={inputRef} type="file" accept="image/*" multiple hidden onChange={upload} />
         </div>
       </div>
@@ -85,7 +93,13 @@ export default function MediaLibraryPage() {
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4 xl:grid-cols-5">
         {items.map((media) => <MediaCard key={media.id} media={media} canDelete={isAdmin} onChanged={reload} />)}
       </div>
-      {!loading && items.length === 0 && <p className="text-sm text-slate-500">No images yet.</p>}
+      {!loading && items.length === 0 && (
+        <div className="panel px-6 py-14 text-center">
+          <span className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-full bg-brand-tint text-brand"><Icon name="photo" className="h-6 w-6" /></span>
+          <p className="font-bold">No images yet</p>
+          <p className="mt-1 text-sm text-slate-500">Upload images here, then reuse them on any page.</p>
+        </div>
+      )}
     </div>
   );
 }

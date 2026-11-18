@@ -17,8 +17,8 @@ export default function ChangePasswordPage() {
   };
 
   return (
-    <form onSubmit={submit} className="card max-w-md space-y-4">
-      <h1 className="text-2xl font-semibold">Change password</h1>
+    <form onSubmit={submit} className="panel max-w-md space-y-4">
+      <h1 className="text-2xl font-extrabold">Change password</h1>
       <input className="form-input" type="password" placeholder="Current password" required value={form.currentPassword}
         onChange={(e) => setForm({ ...form, currentPassword: e.target.value })} />
       <input className="form-input" type="password" minLength={8} placeholder="New password (min. 8 characters)" required value={form.newPassword}

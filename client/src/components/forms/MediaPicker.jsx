@@ -11,7 +11,7 @@ export default function MediaPicker({ onPick, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4">
-      <div className="max-h-[85vh] w-full max-w-3xl overflow-y-auto rounded-lg bg-white p-5">
+      <div className="max-h-[85vh] w-full max-w-3xl overflow-y-auto rounded-xl bg-white p-5 shadow-xl">
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <h3 className="mr-auto font-semibold">Media library</h3>
           <input className="form-input w-48" placeholder="Search by name" value={search} onChange={(e) => setSearch(e.target.value)} />
@@ -25,7 +25,7 @@ export default function MediaPicker({ onPick, onClose }) {
         <div className="grid grid-cols-3 gap-3 sm:grid-cols-4">
           {items.map((media) => (
             <button key={media.id} type="button" onClick={() => onPick(media)}
-              className="overflow-hidden rounded-md border text-left hover:border-brand">
+              className="overflow-hidden rounded-lg border border-slate-200 text-left hover:border-brand">
               <img src={media.url} alt={media.alt || ''} className="h-24 w-full object-cover" />
               <span className="block truncate px-2 py-1 text-xs">{media.name}</span>
             </button>

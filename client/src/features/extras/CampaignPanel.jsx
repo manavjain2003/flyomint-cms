@@ -22,8 +22,8 @@ export default function CampaignPanel() {
   };
 
   return (
-    <section className="card space-y-3">
-      <h2 className="text-sm font-semibold">Send an offer email to all subscribers</h2>
+    <section className="panel space-y-3">
+      <h2 className="text-base font-bold">Send an offer email to all subscribers</h2>
       <input className="form-input" placeholder="Subject" value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} />
       <textarea className="form-input font-mono text-xs" rows={5} placeholder="Message (HTML allowed). An unsubscribe link is added automatically."
         value={form.html} onChange={(e) => setForm({ ...form, html: e.target.value })} />

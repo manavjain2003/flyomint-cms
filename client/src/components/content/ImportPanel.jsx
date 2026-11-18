@@ -22,10 +22,10 @@ export default function ImportPanel({ resource, onDone }) {
   };
 
   return (
-    <div className="card space-y-3">
+    <div className="panel space-y-3">
       <p className="text-sm">
         Upload an Excel (.xlsx) or CSV file. Start from the template so the columns match.{' '}
-        <button className="text-brand underline" onClick={() => resourceService.downloadImportTemplate(resource.api)}>Download template</button>
+        <button className="font-semibold text-brand hover:underline" onClick={() => resourceService.downloadImportTemplate(resource.api)}>Download template</button>
       </p>
       <div className="flex items-center gap-3">
         <input type="file" accept=".xlsx,.csv" onChange={(e) => setFile(e.target.files[0])} className="text-sm" />

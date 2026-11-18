@@ -8,11 +8,11 @@ const FILES = [
 
 export default function SeoLinksPanel() {
   return (
-    <section className="card space-y-2">
-      <h2 className="text-sm font-semibold">Generated files</h2>
+    <section className="panel space-y-2">
+      <h2 className="text-base font-bold">Generated files</h2>
       {FILES.map(({ path, label, hint }) => (
         <p key={path} className="text-sm">
-          <a className="text-brand underline" href={`${env.apiUrl}${path}`} target="_blank" rel="noreferrer">{label}</a>
+          <a className="font-semibold text-brand hover:underline" href={`${env.apiUrl}${path}`} target="_blank" rel="noreferrer">{label}</a>
           <span className="block text-xs text-slate-500">{hint}</span>
         </p>
       ))}
